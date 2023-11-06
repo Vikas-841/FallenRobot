@@ -433,18 +433,18 @@ def Source_about_callback(update: Update, context: CallbackContext):
     query = update.callback_query
     if query.data == "source_":
         # Assuming you have an image file named "your_image.jpg" in the same directory
-        image_file = "your_image.jpg"
+        image_file = "https://telegra.ph/file/d610dce092a7713eca548.jpg"
 
         # Replace the text with the image and message
-        query.message.edit_photo(
-            photo=open(image_file, 'rb'),
+        query.message.edit_media(
+            media=InputMediaPhoto(media=open(image_file, 'rb')),
             caption="Sᴏʀʀʏ, Sᴏᴜʀᴄᴇ Cᴏᴅᴇ Oғ Tʜɪs Bᴏᴛ ɪs Pʀɪᴠᴀᴛᴇ.\n\nAᴅᴅ Tʜɪs Bᴏᴛ ɪɴ Yᴏᴜʀ Gʀᴏᴜᴘ Aɴᴅ Usᴇ Lɪᴋᴇ Yᴏᴜʀs 😊",
             parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="◁", callback_data="source_back")]]
             )
         )
+        
         
 
     elif query.data == "source_back":
